@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!---lang="en-eb"tells the browser its in English-->
+<html lang="en-gb">
+    <head>
+        <title>Cat Photo App</title>
+        <link rel="stylesheet" href= "stylesheet.css">
+        <!---Meta tags are information about the data on the page
+        charset is a meta tag
+        UTF means unicode which lets us add special characters and emojis-->
+        <meta charset ="UTF-8">
+        <!---The below tag helps the search engine pull up the page-->
+        <meta name="description" content="Cat photo app">
+        <meta author="Maraiga Bailey">
+        <!---The below also helps the search engine pull up the page-->
+        <meta keywords="cat, photo">
+        <!--Viewport makes your webpage responsive by setting the width to the size of the screen its being displayed on-->
+        <meta name="viewport" content="width=device-width, inital scale=1.0">
+    </head>
+    <body>
+        <div id="siteHolder">
+            <!---header, main, footer, section helps screen readers and search engines-->
+            <header>
+            <!---nav is for a navigation bar-->
+                <nav>
+                    <ul>
+                        <li> <a href="index.html"> Home </a> </li>
+                        <li> <a href="photoApp.html" id="active"> Photo App </a> </li>
+                        <!---The active id should be set to the html page you are currently on--->
+                        <li> <a href="gallery.html"> Gallery </a> </li>
+                        <li> <a href="Quiz.html"> Quiz </a> </li>
+                    </ul>
+                </nav>
+            <h1>Cat Photo App</h1>
+            <p> 85% of cats (9.3 million) are neutered. 12% of cats are not neutered. Top reasons for not neutering include that the cat does not go outside (20%), the owner wants the cat to have kittens (14%) and the owner thinks that the cat is too young to be neutered (13%)</p>
+            <h3>Cat facts</h3>
+            </header>
+            <div>
+            <main>
+                <section>
+                    <p>
+                        Here are some interesting facts about cats:
+                    </p>
+                    <ul>
+                        <li>There are around 11 million owned cats in the UK, an increase of around 200,000 since 2021.</li>
+                        <li>According to owners, 63% of cats are moggies, 26% are pedigrees and 6% are cross-breeds.</li>
+                        <li>44% of cat owners are male and 56% of cat owners are female.</li>
+                    </ul>
+                </section>
+            </div>
+            <img src="cat.jpg" alt="cat" class="center">
+            <div>
+            <section>
+                    <h3>Top three cat facts</h3>
+                    <ol>
+                        <li>There are around 11 million owned cats in the UK, an increase of around 200,000 since 2021.</li>
+                        <li>According to owners, 63% of cats are moggies, 26% are pedigrees and 6% are cross-breeds.</li>
+                        <li>44% of cat owners are male and 56% of cat owners are female.</li>
+                    </ol>
+                    </div>
+                    <img src="cat1.jpeg" alt="cat with hat" class="center">
+                    <br>
+            </section>
+            <div>
+            <section>
+                <h3>Final lists</h3>
+                <ol>
+                    <li>My favourite fact about cats is</li>
+                    <li> My second favourite is</li>
+                    <li>My third favourite point is</li>
+                    <ul>
+                        <li>This is another point that isn't ordered</li>
+                        <li>This is another point that isn't ordered</li>
+                    </ul>
+                </ol>
+            </section>
+            </div>
+            <section>
+                <p> For more information about cats click <a href="https://www.cats.org.uk/about-cp/cats-report-2022?gad=1&gclid=Cj0KCQjwk96lBhDHARIsAEKO4xZK3ltIwVBu6-NW9rsEllpj33HogeCfX8tu5dlzADlV-l2FlViL3ZUaAkGREALw_wcB" target="_blank">here</a></p>
+                <br>
+                <h2>Submit your cute cat photos here</h2>
+                <!---below is semantic html (descriptive of what's in this bit of the webpage):
+                    -fieldset groups related elements in a form
+                    -input id and label for link together and is to tell html that the button belows to the particular name-->
+                <form name="app" id="app">
+                    <fieldset>
+                        <legend>How many cats are in the UK?</legend>
+
+                        <input id="Loads" type="radio" name="amount" value="Loads"> <label for="Loads">Loads</label>
+                        <br>
+                        <input id="Not enough!" type="radio" name="amount" value="Not enough!"> <label for="Not enough!">Not enough!</label>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <lengend>How many cats do you have?</lengend>
+                        <br>
+                        <input id="One" type="checkbox" name="user" value="One"> <label for="One">One</label>
+                        <br>
+                        <input id="Two" type="checkbox" name="user" value="Two"> <label for="Two">Two</label>
+                    </fieldset>
+                    <br>
+                    <label>Enter your photo URL</label>
+                    <!---Don't need a value tag in a text box as the user fills this in!-->
+                    <br>
+                    <input id="url" type="text" name= "photourl" placeholder="Paste here"> 
+                    <input type="button" value="Upload" onclick="saveFile()" id="button">
+                </form>
+                <br>
+             </section>
+            </main>
+            <br>
+            <footer>
+                <p>Copyright Maraiga Bailey</p>
+            </footer>
+            <br>
+    </div>
+    </body>
+</html>
+
+<script>
+    let saveFile = () => {
+
+        //This is setting the checkboxes as an array
+        var form = document.getElementById('app');
+        var myArray = [];
+            form.querySelectorAll('input').forEach(function (input) {
+                if(input.type === 'checkbox'  && input.checked) {
+                    myArray.push(input.value)
+                }
+            })
+
+        form = document.forms.app.elements;
+        const amount = form.amount.value;
+        const user = myArray;
+        const link = form.photourl.value;
+        
+        // This variable stores all the data.
+        let data = 
+            '\r Amount?: ' + amount + ' \r\n ' + 
+            'User: ' + user + ' \r\n ' + 
+            'Link: ' + link 
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = "filename";	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+        newLink.innerHTML = "Download File:";
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>

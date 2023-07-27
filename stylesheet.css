@@ -1,0 +1,100 @@
+/* is a comment in css */
+
+body {
+    background-color:#b8860b;
+    padding: 100px;
+}
+
+#siteHolder {
+    background-color: blanchedalmond;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 600px;
+    padding: 0 50px 0 50px;
+    color: brown;
+}
+
+h1, h2, h3 {
+    text-decoration: underline;
+    text-align: center;
+    color: black;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    border-radius: 20px 5px 20px 5px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .flex-container {
+    background-color: goldenrod;
+    display: flex; /* This is what makes the display 'flex' (go to the row below if there's no space when the webpage size is changed) */ 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+    padding: 10px;
+  }
+
+/*this only effects the images in the flex-container*/
+  .flex-container img { 
+    height: 150px;
+    padding: 10px;
+    margin: 20px;
+    background-color: blanchedalmond;
+  }
+
+  /* nav ul selects all the items within the <ul> in the <nav> */
+  nav ul {
+    background-color: goldenrod;
+    overflow: hidden;
+    list-style-type: none;
+  }
+
+/* nav a selects all the items contained within <a> in the <nav> */
+  nav a {
+    float: right;
+    display: block;
+    color: brown;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+/* Hover changes the color of items on the nav bar when hovered over*/
+  nav a:hover {
+    background-color: lightblue;
+  }
+
+/* #active is an id which changes the color of the nav bar to indiate what page you're currently on */
+#active {
+    background-color: darkcyan;
+}
+
+#button:hover {
+    background-color: lightblue;
+  }
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: blueviolet;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: green;
+}
